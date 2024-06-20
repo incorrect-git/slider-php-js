@@ -1,0 +1,291 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: #203053;
+}
+
+.slide-main {
+  position: relative;
+  width: 940px;
+  margin: auto;
+}
+
+.slide-block {
+  position: relative;
+  width: 940px;
+  height: 353px;
+  overflow: hidden;
+  box-shadow: 0 0 7px 0px #000;
+  background-image: url( '/img/background_maincap_2.jpg' );
+  background-repeat: no-repeat;
+  background-position: right;
+}
+
+.slider-item {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  display: flex;
+  opacity: 0;
+  color: #fff;
+  transition: opacity .4s ease-out;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.slider-item.show {
+  opacity: 1;
+  z-index: 0;
+  pointer-events: all;
+}
+
+.left-block {
+  flex-shrink: 0;
+  background-color: #000;
+  position: relative;
+  z-index: 2;
+  margin-right: 10px;
+  width: 616px;
+  height: 353px;
+  background-position: center center;
+  background-size: cover;
+  box-shadow: 0 0 10px 5px #000;
+  transition: background-image 2s ease-out;
+}
+
+.right-block {
+  flex-shrink: 1;
+  width: 100%;
+}
+
+.right-block > .app-name {
+  padding-top: 0px;
+  font-family: "Motiva Sans", Sans-serif;
+  font-weight: 300;
+  height: 69px;
+  padding-left: 6px;
+  padding-right: 6px;
+  display: flex;
+  align-items: center;
+}
+
+.right-block > .app-name > span {
+  max-height: 62px;
+  overflow: hidden;
+  font-size: 24px;
+  padding-bottom: 4px;
+  padding-top: 4px;
+  line-height: 26px;
+}
+
+.right-block > .screenshots {
+  width: 344px;
+  display: inline-block;
+  margin-left: -30px;
+  max-height: 176px;
+  position: relative;
+}
+
+.right-block > .screenshots > div {
+  width: 160px;
+  height: 69px;
+  padding: 10px 10px 0 0;
+  display: inline-block;
+}
+
+.right-block > .screenshots > div > div {
+  width: 162px;
+  height: 69px;
+  background-size: cover;
+  background-position: center center;
+  display: inline-block;
+  opacity: 0.6;
+}
+
+.right-block > .screenshots > div > div:hover {
+  opacity: 1;
+}
+
+.right-block > .price-block {
+  position: absolute;
+  bottom: 10px;
+  left: 632px;
+  display: flex;
+}
+
+.right-block > .price-block > .discount {
+  padding: 0 3px;
+  font-family: "Motiva Sans", Sans-serif;
+  font-weight: normal;
+  font-weight: 500;
+  color: #BEEE11;
+  background: #4c6b22;
+  display: inline-block;
+}
+
+.right-block > .price-block > .price {
+  padding: 0 5px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex-shrink: 1;
+  overflow: hidden;
+  justify-content: end;
+  background: #344654;
+}
+
+.right-block > .price-block > .price > .orig-price{
+  position: relative;
+  width: fit-content;
+  color: #738895;
+  font-size: 11px;
+  line-height: 12px;
+  text-decoration: line-through;
+}
+
+.right-block > .price-block > .price > .final-price{
+  padding-left: 4px;
+  font-size: 11px;
+  line-height: 12px;
+  color: #BEEE11;
+}
+
+.right-block > .reason {
+  margin-top: 8px;
+  padding-left: 6px;
+  display: inline-block;
+  width: 298px;
+}
+
+.right-block > .reason > .main {
+  min-height: 45px;
+  font-size: 17px;
+  padding-right: 10px;
+  padding-top: 6px;
+  font-family: "Motiva Sans", Sans-serif;
+  font-weight: 300;
+  line-height: 18px;
+  font-size: 21px;
+  font-weight: 200;
+  min-height: auto;
+}
+
+.right-block > .reason > .additional {
+  margin: 3px 0;
+    margin-right: 0px;
+    margin-bottom: 3px;
+  display: inline-block;
+  margin-right: 14px;
+  line-height: 19px;
+  padding: 0 7px;
+  background-color: rgba( 255, 255, 255, 0.2 );
+  box-shadow: none;
+  margin-right: 2px;
+  border-radius: 2px;
+  cursor: pointer;
+  margin-bottom: 3px;
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 11px;
+}
+
+
+.right-block > .platforms {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  opacity: 0.7;
+}
+
+
+.right-block > .platforms > span {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+}
+.right-block > .platforms > span.win{
+  background-image: url( '/img/icon_platform_win.png' );
+}
+.right-block > .platforms > span.mac{
+  background-image: url( '/img/icon_platform_mac.png' );
+}
+.right-block > .platforms > span.linux{
+  background-image: url( '/img/icon_platform_linux.png' );
+}
+
+
+.arrow {
+  position: absolute;
+  background-color: rgba(0,0,0,0.3);
+  top: 35%;
+  width: 23px;
+  height: 36px;
+  padding: 36px 11px;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.arrow {
+  top: 122px;
+}
+.arrow.right {
+  right: -46px;
+}
+.arrow.left {
+  left: -46px;
+}
+.arrow.right:hover {
+  background: -webkit-linear-gradient( left, rgba( 171, 218, 244, 0) 5%,rgba( 171, 218, 244, 0.3) 95%);
+  background: linear-gradient( to right, rgba( 171, 218, 244, 0) 5%,rgba( 171, 218, 244, 0.3) 95%);
+  
+}
+.arrow.left:hover {
+  background: -webkit-linear-gradient( right, rgba( 171, 218, 244, 0) 5%,rgba( 171, 218, 244, 0.3) 95%);
+  background: linear-gradient( to left, rgba( 171, 218, 244, 0) 5%,rgba( 171, 218, 244, 0.3) 95%);
+  
+}
+
+.arrow.left > div {
+  background-position-x: 23px;
+}
+
+.arrow > div {
+  background-image: url(/img/arrows.png);
+  width: 23px;
+  height: 36px;
+}
+
+
+
+.block-navigate {
+  text-align: center;
+  min-height: 37px;
+  padding-bottom: 4px;
+}
+
+.block-navigate > div {
+  display: inline-block;
+  margin: 12px 2px;
+  width: 15px;
+  height: 9px;
+  border-radius: 2px;
+  transition: background-color 0.2s;
+  background-color: hsla(202,60%,100%,0.2);
+  cursor: pointer;
+}
+
+.block-navigate > div:hover {
+  background-color: hsla(202,60%,100%,0.3);
+}
+.block-navigate > div.show {
+  background-color: hsla(202,60%,100%,0.4);
+}
+
+
