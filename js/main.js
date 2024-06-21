@@ -21,10 +21,10 @@ function main() {
   });
 
   buttonNext.addEventListener('click', () => {
-    showSlide('next');
+    showSlide({ direction: 'next' });
   });
   buttonPrev.addEventListener('click', () => {
-    showSlide('prev');
+    showSlide({ direction: 'prev' });
   });
 
   const sliderInfo = apiRequest('/?api=sliderInfo');
@@ -45,26 +45,32 @@ function main() {
   function autoSlideEnable() {
     clearInterval(autoSlideIntervalId);
     autoSlideIntervalId = setInterval(() => {
-      showSlide('next');
+      showSlide({ direction: 'next' });
     }, 5000);
   }
 
-  function showSlide(direction = 'start') {
-    if (direction === 'start') {
-      index = 0;
-    } else if (direction === 'next') {
-      index = (currentSlide + 1) > countSlides - 1 ? 0 : currentSlide + 1;
-    } else if (direction === 'prev') {
-      index = currentSlide - 1 < 0 ? countSlides - 1 : currentSlide - 1;
+  // function showSlide(direction = 'start') {
+  function showSlide({ index, direction } = { direction: 'start' }) {
+    let indexMove = 0;
+    if (index) {
+      indexMove = index;
+    } else if (direction) {
+      if (direction === 'start') {
+        indexMove = 0;
+      } else if (direction === 'next') {
+        indexMove = (currentSlide + 1) > countSlides - 1 ? 0 : currentSlide + 1;
+      } else if (direction === 'prev') {
+        indexMove = currentSlide - 1 < 0 ? countSlides - 1 : currentSlide - 1;
+      }
     }
 
     sliderBlocks.children[currentSlide].classList.remove('show');
     sliderNavBlock.children[currentSlide].classList.remove('show');
 
-    sliderBlocks.children[index].classList.add('show');
-    sliderNavBlock.children[index].classList.add('show');
+    sliderBlocks.children[indexMove].classList.add('show');
+    sliderNavBlock.children[indexMove].classList.add('show');
 
-    currentSlide = index;
+    currentSlide = indexMove;
     autoSlideEnable();
   }
 
@@ -158,8 +164,9 @@ function main() {
   
   function createSliderNavigationBlockElement(i) {
     const slideNavigateElement = document.createElement('div');
-    slideNavigateElement.addEventListener('click', () => {
-
+    slideNavigateElement.dataset.index = i;
+    slideNavigateElement.addEventListener('click', (e) => {
+      showSlide({ index: e.target.dataset.index });
     });
     sliderNavBlock.appendChild(slideNavigateElement);
   }
