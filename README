@@ -1,41 +1,40 @@
-# <span style="color: #d4d4d4;">Хранение данных слайдера</span>
+## Хранение данных слайдера
+Для хранения слайдов используется база данных MySQL.
 
-<span style="color: #d4d4d4;">Для хранения слайдов используется база данных MySQL.</span>
+#### Структура базы:
+- `slides` - в данной таблице мы храним список всех выводимых слайдов
 
-### <span style="color: #d4d4d4;">Структура базы:</span>
+	- `name_app` - название приложения\игры
 
-- <span style="color: #d4d4d4;">slides - в данной таблице мы храним список всех выводимых слайдов</span>
-    - <span style="color: #dcdcaa;">\`</span><span style="color: #dcdcaa;">name_app</span><span style="color: #dcdcaa;">\`</span> <span style="color: #d4d4d4;">- название приложения\\игры</span>
-        
-    - <span style="color: #dcdcaa;">\`</span><span style="color: #dcdcaa;">price</span><span style="color: #dcdcaa;">\`</span> <span style="color: #d4d4d4;">- цена</span>
-        
-    - <span style="color: #dcdcaa;">\`</span><span style="color: #dcdcaa;">discount</span><span style="color: #dcdcaa;">\`</span> - процент скидки
-        
-    - <span style="color: #dcdcaa;">\`</span><span style="color: #dcdcaa;">logo</span><span style="color: #dcdcaa;">\`</span> <span style="color: #d4d4d4;">\- адрес на основное изображение которое отображается в правой части изначально</span>
-        
-- <span style="color: #d4d4d4;">platforms - в данной таблице хранится список платформ под каждый слайд(win, mac, linux)</span>
-    - <span style="color: #dcdcaa;">\`</span><span style="color: #dcdcaa;">slide_id</span><span style="color: #dcdcaa;">\`</span> <span style="color: #d4d4d4;">\- id слайда</span>
-        
-    - <span style="color: #dcdcaa;">\`</span><span style="color: #dcdcaa;">name_tag</span><span style="color: #dcdcaa;">\`</span> <span style="color: #d4d4d4;">\- краткое название платформы (win, mac, linux)</span>
-        
-- <span style="color: #d4d4d4;">screenshots - в данной таблице хранятся ссылки на все скриншоты для слайдов</span>
-    - <span style="color: #dcdcaa;">\`</span><span style="color: #dcdcaa;">img</span><span style="color: #dcdcaa;">\`</span> <span style="color: #d4d4d4;">\- адрес расположение скриншота</span>
-        
-    - <span style="color: #dcdcaa;">\`</span><span style="color: #dcdcaa;">slide_id</span><span style="color: #dcdcaa;">\`</span> <span style="color: #d4d4d4;">- id слайда</span>
-        
+	- `price` - цена
 
-&nbsp;
+	- `discount` - процент скидки
 
-### <span style="color: #d4d4d4;">Подключение к базе</span>
+	- `logo` - адрес на основное изображение которое отображается в правой части изначально
 
-<span style="color: #d4d4d4;">Данные для подключения к базу необходимо указать в файле **/api/connect.php**</span>
+- `platforms` - в данной таблице хранится список платформ под каждый слайд(win, mac, linux)
 
-<span style="color: #9cdcfe;">$dbHost</span>  - <span style="color: #6a9955;">адрес базы</span>
+	- `slide_id` - id слайда
 
-<span style="color: #9cdcfe;">$dbUsername</span> <span style="color: #d4d4d4;">\-</span> <span style="color: #6a9955;">имя пользователя базы</span>
+	- `name_tag` - краткое название платформы (win, mac, linux)
 
-<span style="color: #9cdcfe;">$dbPassword</span> <span style="color: #d4d4d4;">\-</span> <span style="color: #6a9955;">пароль пользователя базы</span>
+- `screenshots` - в данной таблице хранятся ссылки на все скриншоты для слайдов
 
-<span style="color: #9cdcfe;">$dbName</span> - <span style="color: #6a9955;">название базы данных</span>
+	- `img` - адрес расположение скриншота
 
-<span style="color: #d4d4d4;">Получение данных слайдера из базы происходит через php-скрипт **/api/index.php** при помощи javascript в файле **/js/main.js**, функция **<span style="color: #dcdcaa;">apiRequest(url, method)</span>**</span>
+	- `slide_id` - id слайда
+
+ 
+
+## Подключение к базе
+Данные для подключения к базу необходимо указать в файле `/api/connect.php`
+
+`$dbHost`  - адрес базы
+
+`$dbUsername` - имя пользователя базы
+
+`$dbPassword` - пароль пользователя базы
+
+`$dbName` - название базы данных
+
+Получение данных слайдера из базы происходит через php-скрипт `/api/index.php` при помощи javascript в файле `/js/main.js`, функция `apiRequest(url, method)`
