@@ -54,7 +54,6 @@ body {
   background-position: center center;
   background-size: cover;
   box-shadow: 0 0 10px 5px #000;
-  transition: background-image 2s ease-out;
 }
 
 .right-block {
@@ -224,7 +223,7 @@ body {
 .arrow {
   position: absolute;
   background-color: rgba(0,0,0,0.3);
-  top: 35%;
+  top: 122px;
   width: 23px;
   height: 36px;
   padding: 36px 11px;
@@ -232,9 +231,6 @@ body {
   z-index: 3;
 }
 
-.arrow {
-  top: 122px;
-}
 .arrow.right {
   right: -46px;
 }
@@ -277,15 +273,15 @@ body {
   height: 9px;
   border-radius: 2px;
   transition: background-color 0.2s;
-  background-color: hsla(202,60%,100%,0.2);
+  background-color: rgba(255, 255, 255, 0.2);
   cursor: pointer;
 }
 
 .block-navigate > div:hover {
-  background-color: hsla(202,60%,100%,0.3);
+  background-color: rgba(255, 255, 255, 0.3);
 }
 .block-navigate > div.show {
-  background-color: hsla(202,60%,100%,0.4);
+  background-color: rgba(255, 255, 255, 0.4);
 }
 
 
